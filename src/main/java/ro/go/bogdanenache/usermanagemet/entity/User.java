@@ -1,38 +1,33 @@
 package ro.go.bogdanenache.usermanagemet.entity;
-import java.util.Set;
-
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "users")
-@Getter
-@Setter
-@EqualsAndHashCode
-@Builder
-public class User  {
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+@Document(collection = "user")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
-
     private String id;
-    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 
-    private String username;
+    @Indexed(unique = true)
+    private String login;
 
-    private String email;
-
+    @Size(min = 60, max = 60)
     private String password;
 
-    private String fullname;
-
-    private boolean enabled;
-    @DBRef
-    private Set<Role> roles;
-
+    @JsonIgnore
+    private Set<Authority> authorities = new HashSet<>();
 }
