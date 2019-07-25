@@ -8,7 +8,7 @@ import ro.go.bogdanenache.usermanagemet.entity.User;
 @Repository
 public interface UserRepository extends ReactiveCrudRepository<User, String> {
 
-    Mono<User> findByLogin(String login);
+    Mono<User> findByUsername(String username);
 }
 
 

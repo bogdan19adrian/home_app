@@ -7,6 +7,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -23,10 +26,23 @@ public class User implements Serializable {
     private String id;
 
     @Indexed(unique = true)
-    private String login;
+    private String username;
 
-    @Size(min = 60, max = 60)
+    @Size(min = 6, max = 60)
+    @NotNull
+    @NotEmpty
     private String password;
+    @NotNull
+    @NotEmpty
+    private String firstName;
+    @NotNull
+    @NotEmpty
+    private String lastName;
+
+    @Email
+    private String email;
+
+    private boolean active;
 
     @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();

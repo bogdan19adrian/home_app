@@ -31,13 +31,13 @@ public class SetupInitMigration {
         userAuthority.setName(AuthoritiesConstants.USER);
 
         User adminUser = new User();
-        adminUser.setLogin("admin");
+        adminUser.setUsername("admin");
         adminUser.setPassword("$2a$10$MYkP3aeSQy7DI.qgk4noreZ5uchb0i61OOeWu2tVHAO1yNSsGqCVG"); // password: password
         adminUser.getAuthorities().add(adminAuthority);
         adminUser.getAuthorities().add(userAuthority);
 
         User aprilonUser = new User();
-        aprilonUser.setLogin("user");
+        aprilonUser.setUsername("user");
         aprilonUser.setPassword("$2a$10$MYkP3aeSQy7DI.qgk4noreZ5uchb0i61OOeWu2tVHAO1yNSsGqCVG"); // password: password
         aprilonUser.getAuthorities().add(userAuthority);
 
