@@ -27,7 +27,7 @@ public class StaticContentConfig implements WebFluxConfigurer {
     @Bean
     public RouterFunction<ServerResponse> htmlRouter(@Value("classpath:/public/index.html") Resource html) {
         return route(
-                GET("/index.html"),
+                GET("/"),
                 request -> ok()
                         .contentType(MediaType.TEXT_HTML)
                         .syncBody(html)
