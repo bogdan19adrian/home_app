@@ -37,6 +37,13 @@ public class SecurityConfiguration {
             "/webjars/**",
             "/authorize/**",
             "/favicon.ico",
+            "/index.html",
+            "/*.js",
+            "/*.css",
+            "public/assets/**",
+            "public/assets/images/**",
+            "/public/**",
+            "/"
     };
 
     public SecurityConfiguration(ReactiveUserDetailsServiceImpl reactiveUserDetailsService,
