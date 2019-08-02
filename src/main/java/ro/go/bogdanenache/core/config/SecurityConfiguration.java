@@ -43,6 +43,7 @@ public class SecurityConfiguration {
             "public/assets/**",
             "public/assets/images/**",
             "/public/**",
+            "/weather/**",
             "/"
     };
 
